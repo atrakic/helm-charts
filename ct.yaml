@@ -6,5 +6,10 @@ chart-dirs:
   - charts
 chart-repos:
   - atrakic=https://atrakic.github.io/helm-charts
-helm-extra-args: --timeout 600s
+# Adjust kind timeout limits      
+helm-extra-args: --timeout 800s
 validate-maintainers: false
+upgrade: true
+skip-missing-values: true
+excluded-charts:
+  - common
