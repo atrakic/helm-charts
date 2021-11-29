@@ -1,4 +1,5 @@
 # See https://github.com/helm/chart-testing#configuration
+# https://github.com/helm/chart-testing/blob/main/pkg/config/test_config.yaml
 remote: origin
 target-branch: main
 chart-dirs:
@@ -6,3 +7,4 @@ chart-dirs:
 chart-repos:
   - atrakic=https://atrakic.github.io/helm-charts
 helm-extra-args: --timeout 600s
+validate-maintainers: false
