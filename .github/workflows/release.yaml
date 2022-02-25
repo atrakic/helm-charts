@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,3 +23,11 @@ jobs:
         uses: helm/chart-releaser-action@v1.2.1
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Confirm helm repo listings
+        run: |
+          helm repo add "${{ env.repo }}" "https://${{ env.repo }}.github.io/helm-charts/"
+          helm repo update
+          helm search repo "${{ env.repo }}"
+        env:
+          repo: 'drdkadtr'
