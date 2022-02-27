@@ -1,10 +1,9 @@
-{{/* vim: set filetype=mustache: */}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "common.fullname" . }}
+  name: {{ include "example.fullname" . }}
   labels:
-{{ include "common.labels" . | indent 4 }}
+{{ include "example.labels" . | indent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -13,5 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "common.name" . }}
+    app.kubernetes.io/name: {{ include "example.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

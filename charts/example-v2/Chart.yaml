@@ -1,0 +1,8 @@
+apiVersion: v2
+appVersion: "1.0"
+description: A Helm chart for Kubernetes
+home: https://helm.sh/helm
+name: example-v2
+sources:
+  - https://github.com/drdkadtr/helm-charts
+version: 0.2.7
