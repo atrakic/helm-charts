@@ -1,0 +1,14 @@
+{{- if .Values.configMapName }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMapName }}
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <body>
+    <h1>Hello from {{ .Chart.Name }}, version {{ .Chart.appVersion }}</h1>
+    </body>
+    </html>
+{{- end }}

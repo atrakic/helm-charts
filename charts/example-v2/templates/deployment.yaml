@@ -1,27 +1,26 @@
-{{/* vim: set filetype=mustache: */}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "common.fullname" . }}
+  name: {{ include "example.fullname" . }}
   labels:
-{{ include "common.labels" . | indent 4 }}
+{{ include "example.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "common.name" . }}
+      app.kubernetes.io/name: {{ include "example.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "common.name" . }}
+        app.kubernetes.io/name: {{ include "example.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ template "common.serviceAccountName" . }}
+      serviceAccountName: {{ template "example.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
