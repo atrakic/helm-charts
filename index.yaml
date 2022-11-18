@@ -24,4 +24,15 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/common-0.0.1/common-0.0.1.tgz
     version: 0.0.1
-generated: "2021-11-29T15:11:20.738582018Z"
+  my-nginx:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-11-18T22:05:35.564090831Z"
+    description: A Helm chart for Kubernetes
+    digest: 62c8ce5cd2a78d1636efb165df9670ed4818693615889c6ed0e7643b260b6ea3
+    name: my-nginx
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/my-nginx-0.1.1/my-nginx-0.1.1.tgz
+    version: 0.1.1
+generated: "2022-11-18T22:05:35.564097131Z"
