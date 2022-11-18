@@ -1,6 +1,7 @@
 [![Release Charts](https://github.com/atrakic/helm-charts/actions/workflows/release.yaml/badge.svg)](https://github.com/atrakic/helm-charts/actions/workflows/release.yaml)
 
-This repository hosts my [Helm](https://helm.sh) charts.
+
+[This](https://atrakic.github.io/helm-charts/) repository hosts my [Helm](https://helm.sh) charts.
 
 # Usage
 
