@@ -30,4 +30,4 @@ jobs:
           helm repo update
           helm search repo "${{ env.repo }}"
         env:
-          repo: ${{ repository_owner }}
+          repo: ${{ github.repository_owner }}
