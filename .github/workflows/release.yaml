@@ -31,3 +31,7 @@ jobs:
           helm search repo "${{ env.repo }}"
         env:
           repo: ${{ github.repository_owner }}
+
+       - name: Deploy summary
+          run: |
+            echo "### https://${{ env.repo }}.github.io/helm-charts/ :rocket:" >> $GITHUB_STEP_SUMMARY
