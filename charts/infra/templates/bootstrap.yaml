@@ -9,13 +9,13 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: bootstrap
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: HEAD
+    chart: bootstrap
+    repoURL: {{ .Values.bootstrap.repoURL }}
+    targetRevision: {{ .Values.bootstrap.targetRevision }}
     helm:
       parameters:
         - name: domain
-          value: {{ .Values.domain }}
+          value: {{ .Values.bootstrap.domain }}
   syncPolicy:
     automated:
       selfHeal: true

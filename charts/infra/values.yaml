@@ -7,11 +7,11 @@ spec:
     repoURL: https://github.com/atrakic/argocd-app-of-apps.git
     targetRevision: HEAD
 
-## Local chart
 bootstrap:
+  repoURL: 'https://atrakic.github.io/helm-charts'
+  targetRevision: 0.1.0
   domain: argo.local
 
-##
 certManager:
   chart: cert-manager
   repoURL: 'https://charts.jetstack.io'
