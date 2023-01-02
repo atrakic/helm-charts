@@ -44,8 +44,10 @@ jobs:
         if: steps.list-changed.outputs.changed == 'true'
         uses: helm/kind-action@v1.5.0
 
+        # Disabled  
       - name: Install CRDs
-        if: steps.list-changed.outputs.changed == 'true'
+        if: false
+        #if: steps.list-changed.outputs.changed == 'true'
         run: |
           # cert-manager
           kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.crds.yaml
