@@ -24,6 +24,12 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: latest
+          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+
       - name: Confirm helm repo listings
         run: |
           helm repo add "${{ env.repo }}" "https://${{ env.repo }}.github.io/helm-charts/"
@@ -31,3 +37,7 @@ jobs:
           helm search repo "${{ env.repo }}"
         env:
           repo: ${{ github.repository_owner }}
+
+       - name: Deploy summary
+          run: |
+            echo "### https://${{ env.repo }}.github.io/helm-charts/ :rocket:" >> $GITHUB_STEP_SUMMARY

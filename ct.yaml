@@ -15,3 +15,6 @@ chart-dirs:
   - charts
 excluded-charts:
   - common
+  # TODO: remove ignored bellow
+  - infra
+  - bootstrap
