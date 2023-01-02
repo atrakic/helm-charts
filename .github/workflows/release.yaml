@@ -24,6 +24,12 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: latest
+          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+
       - name: Confirm helm repo listings
         run: |
           helm repo add "${{ env.repo }}" "https://${{ env.repo }}.github.io/helm-charts/"
