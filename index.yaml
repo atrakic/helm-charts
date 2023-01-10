@@ -48,6 +48,16 @@ entries:
   infra:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2023-01-10T00:01:23.706106419Z"
+    description: A Helm chart for ArgoCD
+    digest: 5d59c99fbe61ed69fa345951c861d3dad273d95d310aeef78aeb0a62f3d0f4b9
+    name: infra
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/infra-0.1.2/infra-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2023-01-02T02:16:12.027874018Z"
     description: A Helm chart for ArgoCD
     digest: 5e3c5419ce6fc2f6ed3094a696f31541912e9ba47b1eec363740009f2ffc0a18
@@ -77,4 +87,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/my-nginx-0.1.1/my-nginx-0.1.1.tgz
     version: 0.1.1
-generated: "2023-01-02T02:16:12.027886518Z"
+generated: "2023-01-10T00:01:23.706234019Z"
