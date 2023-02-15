@@ -32,11 +32,9 @@ jobs:
 
       - name: Confirm helm repo listings
         run: |
-          helm repo add "${{ env.repo }}" "https://${{ env.repo }}.github.io/helm-charts/"
+          helm repo add "${{ github.repository_owner }}" "https://${{ github.repository_owner }}.github.io/helm-charts/"
           helm repo update
-          helm search repo "${{ env.repo }}"
-        env:
-          repo: ${{ github.repository_owner }}
+          helm search repo "${{ github.repository_owner }}"
 
       - name: Deploy summary
         run: |
