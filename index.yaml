@@ -45,6 +45,17 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/common-0.0.1/common-0.0.1.tgz
     version: 0.0.1
+  fastapi-htmx-postgresql:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-16T11:49:21.114664422Z"
+    description: A Helm chart for Kubernetes
+    digest: 371bbc863af7c2a159aec2610ca9f920979d590f204350da26fd3c6800048d8d
+    name: fastapi-htmx-postgresql
+    type: application
+    urls:
+    - https://atrakic.github.io/helm-charts/fastapi-htmx-postgresql-0.0.6.tgz
+    version: 0.0.6
   infra:
   - apiVersion: v2
     appVersion: "1.0"
@@ -87,4 +98,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/my-nginx-0.1.1/my-nginx-0.1.1.tgz
     version: 0.1.1
-generated: "2023-01-10T00:01:23.706234019Z"
+generated: "2023-02-16T11:49:21.113281795Z"
