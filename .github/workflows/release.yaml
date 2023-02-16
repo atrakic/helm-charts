@@ -1,10 +1,14 @@
 # https://helm.sh/docs/howto/chart_releaser_action/#github-actions-workflow
-name: Release Charts
-
+name: release
 on:
+  workflow_call:
+  repository_dispatch:
   push:
     branches:
       - main
+    paths:
+      - '**'
+      - '!**.md'        
 jobs:
   release:
     runs-on: ubuntu-latest
