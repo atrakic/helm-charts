@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - '**'
-      - '!**.md'        
+      - '!**.md'
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -38,3 +38,13 @@ jobs:
       - name: Deploy summary
         run: |
           echo "### https://${{ github.repository_owner }}.github.io/helm-charts/ :rocket:" >> $GITHUB_STEP_SUMMARY
+
+        # Disabled
+      - name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        if: false #if: always() # Pick up events even if the job fails or is canceled.
+        with:
+          status: ${{ job.status }}
+          fields: repo,author,action,eventName,ref,workflow
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.ATRAKIC_DELIVERY_SLACK_WEBHOOK }}
