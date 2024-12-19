@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "automerge": true,
+  "automergeType": "branch",
+  "major": {
+    "automerge": false
+  },
+  "kubernetes": {
+    "fileMatch": [
+      "\\.yaml$"
+    ]
+  }
+}
