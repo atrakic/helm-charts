@@ -302,26 +302,6 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/metrics-server-0.0.0/metrics-server-0.0.0.tgz
     version: 0.0.0
-  my-nginx:
-  - apiVersion: v2
-    appVersion: "1.0"
-    created: "2024-11-16T16:20:20.507304272Z"
-    description: A Helm chart for Kubernetes
-    digest: e597fe1875bff92274c95cefe03fa4e3a22c443224a91c86dc889fc18a8d4a0b
-    name: my-nginx
-    urls:
-    - https://github.com/atrakic/helm-charts/releases/download/my-nginx-0.1.2/my-nginx-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-11-18T22:05:35.564090831Z"
-    description: A Helm chart for Kubernetes
-    digest: 62c8ce5cd2a78d1636efb165df9670ed4818693615889c6ed0e7643b260b6ea3
-    name: my-nginx
-    type: application
-    urls:
-    - https://github.com/atrakic/helm-charts/releases/download/my-nginx-0.1.1/my-nginx-0.1.1.tgz
-    version: 0.1.1
   prometheus:
   - apiVersion: v2
     appVersion: "1.0"
