@@ -105,6 +105,20 @@ entries:
     version: 0.0.0
   external-secrets:
   - apiVersion: v2
+    appVersion: 0.11.0
+    created: "2024-12-20T07:04:44.607945871Z"
+    dependencies:
+    - name: external-secrets
+      repository: https://charts.external-secrets.io/
+      version: 0.11.0
+    description: A Helm chart for the External Secrets operator
+    digest: 0589caa59d2229e1a447fe1979234fb016d9450655ae2aed7e0fa87274501b87
+    name: external-secrets
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/external-secrets-0.0.2/external-secrets-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     appVersion: 0.7.2
     created: "2024-12-20T00:26:33.876092836Z"
     dependencies:
@@ -375,4 +389,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-20T00:35:00.062314273Z"
+generated: "2024-12-20T07:04:44.607973473Z"
