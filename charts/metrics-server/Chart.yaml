@@ -2,7 +2,7 @@ apiVersion: v2
 name: metrics-server
 description: A Helm chart for installing Metrics Server
 type: application
-version: 0.0.0
+version: 0.0.1
 # Version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
 appVersion: 3.8.2
