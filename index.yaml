@@ -173,6 +173,17 @@ entries:
     urls:
     - https://atrakic.github.io/helm-charts/fastapi-htmx-postgresql-0.0.6.tgz
     version: 0.0.6
+  guestbook:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2024-12-20T00:35:00.062270881Z"
+    description: A Helm chart for Kubernetes
+    digest: 0e56a5b8f961da3001fa3d29ccc5accce9667669bad9ca5b0f4c576f27e1e471
+    name: guestbook
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/guestbook-0.0.1/guestbook-0.0.1.tgz
+    version: 0.0.1
   infra:
   - apiVersion: v2
     appVersion: "1.0"
@@ -384,4 +395,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-20T00:26:34.762158459Z"
+generated: "2024-12-20T00:35:00.062314273Z"
