@@ -1,0 +1,11 @@
+apiVersion: v2
+name: external-dns
+description: A Helm chart for External DNS
+type: application
+version: 0.0.0
+appVersion: 6.13.1
+
+dependencies:
+  - name: external-dns
+    version: 6.13.1
+    repository: https://charts.bitnami.com/bitnami

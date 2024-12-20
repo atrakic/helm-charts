@@ -1,0 +1,9 @@
+external-dns:
+  serviceAccount:
+    create: false
+    name: "external-dns-sa"
+  ## @param provider DNS provider where the DNS records will be created.
+  ## Available providers are:
+  ## - akamai, alibabacloud, aws, azure, azure-private-dns, cloudflare, coredns, designate, digitalocean, google, hetzner, infoblox, linode, rfc2136, transip, oci
+  ##
+  provider: aws

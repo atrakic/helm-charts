@@ -1,4 +1,6 @@
 *.tgz
-charts/*/charts
+#charts/*/charts
 .bin/
 charts/*.tgz
+charts/*/*.lock
+charts/*/*/*.lock

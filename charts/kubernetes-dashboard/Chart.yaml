@@ -1,0 +1,13 @@
+apiVersion: v2
+name: kubernetes-dashboard
+description: A Helm chart for Kubernetes Dashboard
+type: application
+version: 0.0.0
+# Version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application.
+appVersion: 5.7.0
+
+dependencies:
+- name: kubernetes-dashboard
+  version: 5.7.0
+  repository: https://kubernetes.github.io/dashboard/
