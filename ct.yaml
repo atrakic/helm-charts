@@ -1,7 +1,6 @@
 # See https://github.com/helm/chart-testing#configuration
 # https://github.com/helm/chart-testing/blob/main/pkg/config/test_config.yaml
 
-# Detect changes to a helm chart by comparing with this remote/branch.
 remote: origin
 target-branch: main
 check-version-increment: true
@@ -9,6 +8,9 @@ validate-maintainers: false
 skip-missing-values: true
 upgrade: true
 helm-extra-args: --timeout 600s
+helm-lint-extra-args: --quiet
+namespace: default
+skip-clean-up: true
 chart-dirs:
   - charts
 chart-repos:
