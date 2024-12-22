@@ -272,6 +272,18 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/ingress-nginx-0.0.0/ingress-nginx-0.0.0.tgz
     version: 0.0.0
+  kube-prometheus-stack:
+  - apiVersion: v2
+    created: "2024-12-22T18:05:07.112028237Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 56.19.0
+    digest: be3acfd55171e51115aa42b30306d7a2824153bfc75c81165d4f5abf418188f8
+    name: kube-prometheus-stack
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/kube-prometheus-stack-0.0.0/kube-prometheus-stack-0.0.0.tgz
+    version: 0.0.0
   kubernetes-dashboard:
   - apiVersion: v2
     appVersion: 5.7.0
@@ -403,4 +415,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-22T14:48:49.854198327Z"
+generated: "2024-12-22T18:05:07.112056981Z"
