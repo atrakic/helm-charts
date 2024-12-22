@@ -10,6 +10,7 @@ upgrade: true
 helm-extra-args: --timeout 600s
 helm-lint-extra-args: --quiet
 namespace: default
+release-label: release
 skip-clean-up: true
 chart-dirs:
   - charts
