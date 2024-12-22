@@ -126,4 +126,4 @@ spec:
     targetPort: 2222
   selector:
     app: containerssh
-  type: {{ .Values.serviceType | default "ClusterIP" }}
+  type: {{ .Values.service.type | default "ClusterIP" }}
