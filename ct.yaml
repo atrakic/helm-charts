@@ -5,6 +5,8 @@ remote: origin
 target-branch: main
 check-version-increment: true
 validate-maintainers: false
+#validate-chart-schema: true
+#validate-yaml: true
 skip-missing-values: true
 upgrade: true
 helm-extra-args: --timeout 600s
