@@ -2,7 +2,7 @@ apiVersion: v2
 name: ingress-nginx
 description: A Helm chart for Nginx Ingress Controller
 type: application
-version: 0.0.1
+version: 0.0.2
 # Version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
 appVersion: 4.1.4
