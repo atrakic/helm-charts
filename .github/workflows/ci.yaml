@@ -1,4 +1,4 @@
-name: Lint and Test Charts
+name: ci
 
 on:
   push:
@@ -51,6 +51,6 @@ jobs:
           kubectl get all,cm,sa -A
 
       - name: Cleanup
-        if: always()
+        if: steps.list-changed.outputs.changed == 'true'
         run: |
           kubectl get events --sort-by='.metadata.creationTimestamp' -A
