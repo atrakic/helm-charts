@@ -13,6 +13,18 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/alpine-0.1.0/alpine-0.1.0.tgz
     version: 0.1.0
+  argo-cd:
+  - apiVersion: v2
+    created: "2024-12-22T22:07:49.402910625Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 7.5.2
+    digest: 25edada6fdfe30b206c560d904eefa49ca46f15024cbc1930fd50ac39359c47b
+    name: argo-cd
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/argo-cd-0.0.0/argo-cd-0.0.0.tgz
+    version: 0.0.0
   bootstrap:
   - apiVersion: v2
     appVersion: "1.0"
@@ -415,4 +427,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-22T18:05:07.112056981Z"
+generated: "2024-12-22T22:07:49.402937004Z"
