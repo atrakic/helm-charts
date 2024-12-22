@@ -27,7 +27,8 @@ chart-repos:
   - prometheus=https://prometheus-community.github.io/helm-charts
   - promtail=https://grafana.github.io/helm-charts
 
-#excluded-charts:
+excluded-charts:
+  - ingress-nginx
 #  - common
 #  - infra
 #  - bootstrap
