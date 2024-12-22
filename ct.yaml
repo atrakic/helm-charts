@@ -4,13 +4,11 @@
 # Detect changes to a helm chart by comparing with this remote/branch.
 remote: origin
 target-branch: main
-
-# What to check
 check-version-increment: true
 validate-maintainers: false
 skip-missing-values: true
 upgrade: true
-helm-extra-args: --timeout 120s
+helm-extra-args: --timeout 600s
 chart-dirs:
   - charts
 chart-repos:
@@ -26,7 +24,6 @@ chart-repos:
   - prometheus-node-exporter=https://prometheus-community.github.io/helm-charts
   - prometheus=https://prometheus-community.github.io/helm-charts
   - promtail=https://grafana.github.io/helm-charts
-
 excluded-charts:
   - ingress-nginx
 #  - common
