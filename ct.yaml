@@ -26,7 +26,6 @@ chart-repos:
   - prometheus-node-exporter=https://prometheus-community.github.io/helm-charts
   - prometheus=https://prometheus-community.github.io/helm-charts
   - promtail=https://grafana.github.io/helm-charts
-  - spark-operator=https://googlecloudplatform.github.io/spark-on-k8s-operator
 
 #excluded-charts:
 #  - common
