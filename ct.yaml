@@ -10,9 +10,24 @@ check-version-increment: true
 validate-maintainers: false
 skip-missing-values: true
 upgrade: true
-helm-extra-args: --timeout 60s
+helm-extra-args: --timeout 120s
 chart-dirs:
   - charts
+chart-repos:
+  - bitnami=https://charts.bitnami.com/bitnami
+  - ingress-nginx=https://kubernetes.github.io/ingress-nginx
+  - argo=https://argoproj.github.io/argo-helm
+  - atrakic=https://atrakic.github.io/helm-charts
+  - jetstack=https://charts.jetstack.io
+  - autoscaler=https://kubernetes.github.io/autoscaler
+  - external-secrets=https://charts.external-secrets.io/
+  - kubernetes-dashboard=https://kubernetes.github.io/dashboard/
+  - metrics-server=https://kubernetes-sigs.github.io/metrics-server
+  - prometheus-node-exporter=https://prometheus-community.github.io/helm-charts
+  - prometheus=https://prometheus-community.github.io/helm-charts
+  - promtail=https://grafana.github.io/helm-charts
+  - spark-operator=https://googlecloudplatform.github.io/spark-on-k8s-operator
+
 #excluded-charts:
 #  - common
 #  - infra
