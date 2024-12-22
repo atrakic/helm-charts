@@ -20,6 +20,7 @@ jobs:
           ref: gh-pages
       - run: |
           echo -e "User-Agent: *\nDisallow: /" > robots.txt
+          echo -e "theme: jekyll-theme-cayman" > _config.yml
           cp -f ${{ runner.temp }}/README.md .
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
