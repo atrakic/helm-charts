@@ -1,0 +1,15 @@
+# Default values for argo-cd.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+argo-cd:
+  dex:
+    enabled: false
+  server:
+    extraArgs:
+      - --insecure
+    config:
+      repositories: |
+        - type: helm
+          name: argo-cd
+          url: https://argoproj.github.io/argo-helm
