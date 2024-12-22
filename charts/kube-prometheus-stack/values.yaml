@@ -13,8 +13,8 @@ kube-prometheus-stack:
     additionalDataSources:
       - name: Loki
         type: loki
-        isDefault: false
-        #access: proxy
+        # isDefault: false
+        # access: proxy
         url: http://loki.svc.cluster.local:3100
   prometheus:
     ingres:
