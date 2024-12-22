@@ -232,6 +232,20 @@ entries:
   ingress-nginx:
   - apiVersion: v2
     appVersion: 4.1.4
+    created: "2024-12-22T14:48:49.854147211Z"
+    dependencies:
+    - name: ingress-nginx
+      repository: https://kubernetes.github.io/ingress-nginx
+      version: 4.1.4
+    description: A Helm chart for Nginx Ingress Controller
+    digest: 364b595c4622e9647f73c7df2a150360550d3b61757552ef8fb2a4154e9a6e5f
+    name: ingress-nginx
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/ingress-nginx-0.0.2/ingress-nginx-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 4.1.4
     created: "2024-12-20T00:26:34.049290911Z"
     dependencies:
     - name: ingress-nginx
@@ -389,4 +403,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-20T07:04:44.607973473Z"
+generated: "2024-12-22T14:48:49.854198327Z"
