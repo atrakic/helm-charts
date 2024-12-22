@@ -1,6 +1,5 @@
-name: Sync GH Pages
 on:
-  workflow_call:
+  workflow_dispatch:
   push:
     branches:
       - 'main'
@@ -8,6 +7,8 @@ on:
       - 'README.md'
 jobs:
   build:
+    permissions:
+      contents: write # for git push
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
