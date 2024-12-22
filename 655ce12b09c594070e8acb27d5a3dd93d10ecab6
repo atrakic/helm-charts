@@ -1,0 +1,5 @@
+ref: https://github.com/atrakic/helm-charts/actions/runs/12457936240/job/34772994520
+
+Installing chart "argo-cd => (version: \"0.0.0\", path: \"charts/argo-cd\")"...
+Error: INSTALLATION FAILED: Unable to continue with install: ServiceAccount "argocd-application-controller" in namespace "default" exists and cannot be imported into the current release: invalid ownership metadata; annotation validation error: key "meta.helm.sh/release-name" must equal "argo-cd-6bb5zbhgfu": current value is "argo-cd-4m6q5eczgi"
+Error: failed installing charts: failed processing chart
