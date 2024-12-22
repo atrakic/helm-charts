@@ -1,0 +1,25 @@
+# Default values for kube-prometheus-stack.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+kube-prometheus-stack:
+  grafana:
+    ingres:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+    hosts:
+      - grafana.localhost.nip.io
+    additionalDataSources:
+      - name: Loki
+        type: loki
+        isDefault: false
+        #access: proxy
+        url: http://loki.svc.cluster.local:3100
+  prometheus:
+    ingres:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+    hosts:
+      - prometheus.localhost.nip.io
