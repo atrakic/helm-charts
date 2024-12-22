@@ -1,3 +1,4 @@
+name: Sync GH-Pages
 on:
   workflow_dispatch:
   push:
