@@ -8,6 +8,9 @@ all:
 install:
 	helm upgrade --install --cleanup-on-fail --create-namespace $(CHART) -n $(CHART) .
 
+status:
+	helm get all $(CHART) -n $(CHART)
+
 uninstall:
 	helm uninstall $(CHART) -n $(CHART)
 
