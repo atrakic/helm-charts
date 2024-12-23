@@ -6,8 +6,9 @@ argo-cd:
   dex:
     enabled: false
   server:
-    extraArgs:
-      - --insecure
+    controller:
+      metricsConfig:
+        enabled: true
     config:
       repositories: |
         - type: helm
