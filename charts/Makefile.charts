@@ -1,4 +1,5 @@
-CHART ?= argocd # $(shell basename $$PWD)
+CHART ?= $(shell basename $$PWD)
+URL ?= $(shell awk '/repository:/ {print $$2}' Chart.yaml)
 
 all:
 	helm dependency build --skip-refresh
@@ -11,4 +12,4 @@ uninstall:
 	helm uninstall $(CHART) -n $(CHART)
 
 debug:
-	helm show values argo --repo https://argoproj.github.io/argo-helm
+	helm show values $(CHART) --repo $(URL)
