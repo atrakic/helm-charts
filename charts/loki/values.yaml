@@ -1,4 +1,10 @@
 loki-stack:
   loki:
-    serviceMonitor:
-      enabled: false
+    auth_enabled: false
+  service:
+    ingres:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
+  test:
+    enabled: false

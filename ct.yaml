@@ -17,13 +17,13 @@ skip-clean-up: true
 chart-dirs:
   - charts
 chart-repos:
-  - atrakic=https://atrakic.github.io/helm-charts
+#  - atrakic=https://atrakic.github.io/helm-charts
   - bitnami=https://charts.bitnami.com/bitnami
   - ingress-nginx=https://kubernetes.github.io/ingress-nginx
   - argo=https://argoproj.github.io/argo-helm
   - jetstack=https://charts.jetstack.io
   - autoscaler=https://kubernetes.github.io/autoscaler
-  - external-secrets=https://charts.external-secrets.io/
+  - external-secrets=https://charts.external-secrets.io
   - kubernetes-dashboard=https://kubernetes.github.io/dashboard/
   - metrics-server=https://kubernetes-sigs.github.io/metrics-server
   - prometheus-node-exporter=https://prometheus-community.github.io/helm-charts
