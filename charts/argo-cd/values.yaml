@@ -9,6 +9,13 @@ argo-cd:
     controller:
       metricsConfig:
         enabled: true
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        #kubernetes.io/tls-acme: "true"
+      hosts:
+        - host: argocd.atrakic.io
     config:
       repositories: |
         - type: helm
