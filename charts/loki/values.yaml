@@ -1,4 +1,4 @@
 loki-stack:
   loki:
     serviceMonitor:
-      enabled: true
+      enabled: false
