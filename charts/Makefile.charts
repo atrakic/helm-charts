@@ -1,3 +1,4 @@
+NS ?= $(shell basename $$PWD)
 CHART ?= $(shell basename $$PWD)
 URL ?= $(shell awk '/repository:/ {print $$2}' Chart.yaml)
 
@@ -6,13 +7,13 @@ all:
 	helm template --debug .
 
 install:
-	helm upgrade --install --cleanup-on-fail --create-namespace $(CHART) -n $(CHART) .
+	helm upgrade --install --cleanup-on-fail --create-namespace $(CHART) -n $(NS) .
 
 status:
-	helm get all $(CHART) -n $(CHART)
+	helm get all $(CHART) -n $(NS)
 
 uninstall:
-	helm uninstall $(CHART) -n $(CHART)
+	helm uninstall $(CHART) -n $(NS)
 
 debug:
 	helm show values $(CHART) --repo $(URL)
