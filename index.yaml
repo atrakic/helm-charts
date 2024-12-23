@@ -325,6 +325,18 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/kubernetes-dashboard-0.0.0/kubernetes-dashboard-0.0.0.tgz
     version: 0.0.0
+  loki:
+  - apiVersion: v2
+    created: "2024-12-23T19:08:16.325737836Z"
+    dependencies:
+    - name: loki-stack
+      repository: https://grafana.github.io/helm-charts
+      version: 2.10.1
+    digest: 70286f924ca24be0f84caf905b6b84d666c4c5af3a710d1319bb1f7643edae66
+    name: loki
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/loki-0.0.0/loki-0.0.0.tgz
+    version: 0.0.0
   metrics-server:
   - apiVersion: v2
     appVersion: 3.8.2
@@ -427,4 +439,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-22T22:07:49.402937004Z"
+generated: "2024-12-23T19:08:16.325797648Z"
