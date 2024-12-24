@@ -3,59 +3,87 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: monitoring
-  namespace: {{ .Values.spec.namespace }}
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    server: {{ .Values.spec.destination.server }}
+    server: {{ .Values.infra.destination.server }}
     namespace: {{ .Values.monitoring.namespace }}
-  project: {{ .Values.spec.project }}
+  project: {{ .Values.infra.project }}
   source:
     repoURL: {{ .Values.monitoring.repoURL }}
     targetRevision: {{ .Values.monitoring.targetRevision }}
-    #directory:
-    #  recurse: true
-    helm:
-      skipCrds: true
-      values: |-
-        # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml#L140
+  helm:
+    skipCrds: true
+    values: |
+      {{ if .Values.monitoring.pdkey }}
         alertmanager:
-          enabled: false
-        # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml#L1963
+          config:
+            route:
+              group_by: ['namespace']
+              group_wait: 30s
+              group_interval: 5m
+              repeat_interval: 12h
+              receiver: default
+              routes:
+              - receiver: default
+                matchers:
+                  - alertname =~ "InfoInhibitor|Watchdog"
+            receivers:
+              - name: default
+                pagerduty_configs:
+                - service_key: {{ .Values.monitoring.pdkey }}
+      {{ end }}
         prometheus:
+          enabled: true
+          prometheusSpec:
+            podMonitorNamespaceSelector:
+            any: true
+            podMonitorSelector: {}
+            podMonitorSelectorNilUsesHelmValues: false
+            ruleNamespaceSelector:
+              any: true
+            ruleSelector: {}
+            ruleSelectorNilUsesHelmValues: false
+            serviceMonitorNamespaceSelector:
+              any: true
+            serviceMonitorSelector: {}
+            serviceMonitorSelectorNilUsesHelmValues: false
+            retention: {{ .Values.monitoring.retention }}
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  storageClassName: {{ .Values.monitoring.storageClass }}
+                  accessModes: ["ReadWriteOnce"]
+                  resources:
+                    requests:
+                      storage: {{ .Values.monitoring.storageSize }}
+        grafana:
+          enabled: true
           ingress:
             enabled: true
             ingressClassName: nginx
             pathType: ImplementationSpecific
             hosts:
-              - prometheus.local
-        grafana:
-            enabled: false
-            ingress:
-              enabled: false
-              ingressClassName: nginx
-              pathType: ImplementationSpecific
-              hosts:
-                - grafana.local
-            service:
-              type: ClusterIP
-            {{- if .Values.logging.enabled }}
-            # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml#L840
-            additionalDataSources:
-              - name: loki
-                type: loki
-                url: http://loki.monitoring.svc.cluster.local:3100
-           {{- end }}
-    chart: {{ .Values.monitoring.chart }}
+              - grafana.local
+          sidecar:
+            dashboards:
+              searchNamespace: ALL
+          service:
+            type: ClusterIP
+          additionalDataSources:
+            - name: loki
+              type: loki
+              url: http://loki.monitoring.svc.cluster.local:3100
+    chart: kube-prometheus-stack
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: monitoring
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - Replace=true
-      - PruneLast=true
 {{- end }}

@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .Values.nginx.chart }}
-  namespace: {{ .Values.spec.namespace }}
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
   finalizers:
@@ -11,8 +11,8 @@ metadata:
 spec:
   destination:
     namespace: {{ .Values.nginx.namespace }}
-    server: {{ .Values.spec.destination.server }}
-  project: {{ .Values.spec.project }}
+    server: {{ .Values.infra.destination.server }}
+  project: {{ .Values.infra.project }}
   source:
     chart: {{ .Values.nginx.chart }}
     helm:

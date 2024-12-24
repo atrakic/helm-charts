@@ -1,15 +1,20 @@
+{{- if .Values.certManager.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .Values.certManager.chart }}
-  namespace: {{ .Values.spec.namespace }}
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ .Values.spec.project }}
+  destination:
+    server: {{ .Values.infra.destination.server }}
+    namespace: {{ .Values.certManager.namespace }}
+  project: {{ .Values.infra.project }}
   source:
+    chart: {{ .Values.certManager.chart }}
     repoURL: {{ .Values.certManager.repoURL }}
     targetRevision: {{ .Values.certManager.targetRevision }}
     helm:
@@ -20,11 +25,8 @@ spec:
           value: 'false'
         - name: prometheus.servicemonitor.honorLabels
           value: 'true'
-    chart: {{ .Values.certManager.chart }}
-  destination:
-    server: {{ .Values.spec.destination.server }}
-    namespace: {{ .Values.certManager.namespace }}
   syncPolicy:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+{{- end }}

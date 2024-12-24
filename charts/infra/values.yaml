@@ -1,11 +1,15 @@
-spec:
+# Default values for infra.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+infra:
   project: default
   namespace: argocd
   destination:
     server: https://kubernetes.default.svc
-  source:
-    repoURL: https://github.com/atrakic/argocd-app-of-apps.git
-    targetRevision: HEAD
+  #source:
+  #  repoURL: https://github.com/atrakic/argocd-app-of-apps.git
+  #  targetRevision: HEAD
 
 bootstrap:
   repoURL: 'https://atrakic.github.io/helm-charts'
@@ -24,7 +28,7 @@ certManager:
 nginx:
   chart: ingress-nginx
   repoURL: 'https://kubernetes.github.io/ingress-nginx'
-  enabled: false
+  enabled: true
   namespace: ingress-nginx
   targetRevision: 4.1.4
   helm:
@@ -33,10 +37,11 @@ nginx:
 monitoring:
   chart: kube-prometheus-stack
   repoURL: 'https://prometheus-community.github.io/helm-charts'
-  enabled: false
+  enabled: true
   namespace: monitoring
-  targetRevision: 56.19.0
+  targetRevision: 67.4.0
   helm:
+    values: {}
     parameters: []
 
 monitoringCrds:
@@ -44,7 +49,7 @@ monitoringCrds:
   repoURL: 'https://github.com/prometheus-community/helm-charts.git'
   enabled: true
   namespace: monitoring
-  targetRevision: kube-prometheus-stack-43.1.1
+  targetRevision: kube-prometheus-stack-67.2.1
   helm:
     parameters: []
 
@@ -66,7 +71,7 @@ storage:
   targetRevision: HEAD
   helm:
     parameters: []
-  # nodeSelector: local-path-provisioner=true
+    # nodeSelector: local-path-provisioner=true
 
 k8spacket:
   chart: k8spacket
@@ -74,14 +79,5 @@ k8spacket:
   enabled: false
   namespace: k8spacket
   targetRevision: v1.0.0
-  helm:
-    parameters: []
-
-sealedSecrets:
-  chart:
-  repoURL:
-  enabled: false
-  namespace:
-  targetRevision:
   helm:
     parameters: []

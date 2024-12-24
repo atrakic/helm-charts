@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: argocd
-    server: {{ .Values.spec.destination.server }}
+    server: {{ .Values.infra.destination.server }}
   project: default
   source:
     chart: bootstrap

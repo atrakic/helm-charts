@@ -3,13 +3,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .Values.k8spacket.chart }}
-  namespace: {{ .Values.spec.namespace }}
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ .Values.spec.project }}
+  project: {{ .Values.infra.project }}
   source:
     repoURL: {{ .Values.k8spacket.repoURL }}
     targetRevision: {{ .Values.k8spacket.targetRevision }}
@@ -17,7 +17,7 @@ spec:
     #  parameters: {}
     chart: {{ .Values.k8spacket.chart }}
   destination:
-    server: {{ .Values.spec.destination.server }}
+    server: {{ .Values.infra.destination.server }}
     namespace: {{ .Values.k8spacket.namespace }}
   syncPolicy:
     automated: {}
