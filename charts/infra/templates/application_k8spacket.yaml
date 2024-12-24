@@ -13,9 +13,9 @@ spec:
   source:
     repoURL: {{ .Values.k8spacket.repoURL }}
     targetRevision: {{ .Values.k8spacket.targetRevision }}
-    #helm:
-    #  parameters: {}
     chart: {{ .Values.k8spacket.chart }}
+    helm:
+      parameters: {{ .Values.k8spacket.helm.parameters | toYaml | nindent 8 }}
   destination:
     server: {{ .Values.infra.destination.server }}
     namespace: {{ .Values.k8spacket.namespace }}

@@ -5,13 +5,13 @@ remote: origin
 target-branch: main
 check-version-increment: true
 validate-maintainers: false
-#validate-chart-schema: true
-#validate-yaml: true
+validate-chart-schema: false
+validate-yaml: true
 skip-missing-values: true
-upgrade: true
+#upgrade: true
 helm-extra-args: --timeout 600s
 helm-lint-extra-args: --quiet
-namespace: default
+#namespace: default
 release-label: release
 skip-clean-up: true
 chart-dirs:
@@ -29,9 +29,11 @@ chart-repos:
   - prometheus-node-exporter=https://prometheus-community.github.io/helm-charts
   - prometheus=https://prometheus-community.github.io/helm-charts
   - grafana=https://grafana.github.io/helm-charts
+exclude-deprecated: true
 excluded-charts:
   - ingress-nginx
   - argo-cd
+  - guestbook
 #  - common
 #  - infra
 #  - bootstrap

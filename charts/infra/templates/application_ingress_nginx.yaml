@@ -15,12 +15,15 @@ spec:
   project: {{ .Values.infra.project }}
   source:
     chart: {{ .Values.nginx.chart }}
-    helm:
-      parameters:
-      - name: controller.kind
-        value: daemonset
     repoURL: {{ .Values.nginx.repoURL }}
     targetRevision: {{ .Values.nginx.targetRevision }}
+    helm:
+      values: |
+        controller:
+          defaultBackend:
+            enabled: true
+            image: ghcr.io/atrakic/go-static-site:latest
+      parameters: {{ .Values.nginx.parameters | toYaml | nindent 8 }}
   syncPolicy:
     automated:
       prune: true

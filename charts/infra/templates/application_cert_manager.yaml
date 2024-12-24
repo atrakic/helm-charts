@@ -18,13 +18,8 @@ spec:
     repoURL: {{ .Values.certManager.repoURL }}
     targetRevision: {{ .Values.certManager.targetRevision }}
     helm:
-      parameters:
-        - name: installCRDs
-          value: 'true'
-        - name: prometheus.servicemonitor.enabled
-          value: 'false'
-        - name: prometheus.servicemonitor.honorLabels
-          value: 'true'
+      # Extra parameters to set (same as setting through values.yaml, but these take precedence)
+      parameters: {{ .Values.certManager.helm.parameters | toYaml | nindent 8 }}
   syncPolicy:
     automated: {}
     syncOptions:

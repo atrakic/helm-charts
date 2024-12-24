@@ -7,7 +7,7 @@ infra:
   namespace: argocd
   destination:
     server: https://kubernetes.default.svc
-  #source:
+  # source:
   #  repoURL: https://github.com/atrakic/argocd-app-of-apps.git
   #  targetRevision: HEAD
 
@@ -23,7 +23,13 @@ certManager:
   namespace: cert-manager
   targetRevision: v1.10.1
   helm:
-    parameters: []
+    parameters:
+      - name: installCRDs
+        value: 'true'
+      - name: prometheus.servicemonitor.enabled
+        value: 'false'
+      - name: prometheus.servicemonitor.honorLabels
+        value: 'true'
 
 nginx:
   chart: ingress-nginx
@@ -41,7 +47,6 @@ monitoring:
   namespace: monitoring
   targetRevision: 67.4.0
   helm:
-    values: {}
     parameters: []
 
 monitoringCrds:
