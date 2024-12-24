@@ -1,9 +1,11 @@
-# https://helm.sh/docs/howto/chart_releaser_action/#github-actions-workflow
+## Reference: https://github.com/helm/chart-releaser-action
+## https://helm.sh/docs/howto/chart_releaser_action/#github-actions-workflow
+
 name: release
 on:
-  workflow_call:
-  workflow_dispatch:
-  repository_dispatch:
+  workflow_call:       # allows one workflow to be called or triggered by another workflow
+  workflow_dispatch:   # allows the workflow to be triggered manually
+  # repository_dispatch: # allows the workflow to be triggered via an HTTP POST request
   push:
     branches:
       - main
@@ -12,6 +14,9 @@ on:
       - '!**.md'
 jobs:
   release:
+    permissions:
+      contents: write  # for helm/chart-releaser-action to push chart release and create a release
+      packages: write  # to push OCI chart package to GitHub Registry
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,6 +31,8 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
+        with:
+          config: "./.github/configs/cr.yaml"
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -47,4 +54,4 @@ jobs:
           status: ${{ job.status }}
           fields: repo,author,action,eventName,ref,workflow
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.ATRAKIC_DELIVERY_SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
