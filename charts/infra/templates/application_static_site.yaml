@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: go-static-site
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+ project: default
+ source:
+  repoURL: 'https://github.com/atrakic/go-static-site'
+  path: ./charts/go-static-site
+  targetRevision: HEAD
+  helm:
+    valueFiles:
+      - values.yaml
+    parameters:
+      - name: image.tag
+        value: latest
+ destination:
+  server: {{ .Values.infra.destination.server }}
+  namespace: dev
+ syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true

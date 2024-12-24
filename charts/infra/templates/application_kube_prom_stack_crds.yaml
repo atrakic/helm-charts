@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .Values.monitoringCrds.chart }}
-  namespace: {{ .Values.spec.namespace }}
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "0" # should be lower then monitoring chart
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    server: {{ .Values.spec.destination.server }}
+    server: {{ .Values.infra.destination.server }}
     namespace: {{ .Values.monitoringCrds.namespace }}
-  project: {{ .Values.spec.project }}
+  project: {{ .Values.infra.project }}
   source:
     repoURL: {{ .Values.monitoringCrds.repoURL }}
     path: charts/kube-prometheus-stack/crds/

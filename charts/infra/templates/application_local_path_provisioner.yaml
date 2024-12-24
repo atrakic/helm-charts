@@ -3,13 +3,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: localpath
-  namespace: {{ .Values.spec.namespace }}
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
- project: {{ .Values.spec.project }}
+ project: {{ .Values.infra.project }}
  source:
   repoURL: {{ .Values.storage.repoURL }}
   path: deploy/chart/local-path-provisioner
@@ -23,7 +23,7 @@ spec:
         value: {{ .Values.storage.local.nodeSelector }}
       {{- end }}
  destination:
-  server: {{ .Values.spec.destination.server }}
+  server: {{ .Values.infra.destination.server }}
   namespace: {{ .Values.storage.namespace }}
  syncPolicy:
   automated: {}
