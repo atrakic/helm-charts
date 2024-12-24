@@ -202,6 +202,16 @@ entries:
   guestbook:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2024-12-24T22:17:27.728864698Z"
+    description: A Helm chart for Kubernetes
+    digest: 1d07647f0e680f30c4a8891013b31bcc1898f9131c086c3bd51a125c21eb17ba
+    name: guestbook
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/guestbook-0.0.2/guestbook-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2024-12-20T00:35:00.062270881Z"
     description: A Helm chart for Kubernetes
     digest: 0e56a5b8f961da3001fa3d29ccc5accce9667669bad9ca5b0f4c576f27e1e471
@@ -211,6 +221,16 @@ entries:
     - https://github.com/atrakic/helm-charts/releases/download/guestbook-0.0.1/guestbook-0.0.1.tgz
     version: 0.0.1
   infra:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2024-12-24T22:17:27.823162007Z"
+    description: A Helm chart for ArgoCD
+    digest: 2cd8e82cd5bb0d255c940f42987deb8d50a2446de9758e8c3205ae017eff475b
+    name: infra
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/infra-0.1.3/infra-0.1.3.tgz
+    version: 0.1.3
   - apiVersion: v2
     appVersion: "1.0"
     created: "2023-01-10T00:01:23.706106419Z"
@@ -439,4 +459,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-23T19:08:16.325797648Z"
+generated: "2024-12-24T22:17:27.823207832Z"
