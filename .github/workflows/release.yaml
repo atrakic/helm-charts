@@ -3,9 +3,15 @@
 
 name: release
 on:
-  workflow_call:       # allows one workflow to be called or triggered by another workflow
-  workflow_dispatch:   # allows the workflow to be triggered manually
-  # repository_dispatch: # allows the workflow to be triggered via an HTTP POST request
+  # allows one workflow to be called or triggered by another workflow
+  workflow_call:
+
+  # allows the workflow to be triggered manually
+  workflow_dispatch:
+
+  # allows the workflow to be triggered via an HTTP POST request
+  repository_dispatch: # https://github.com/atrakic/fastapi-htmx-postgresql/blob/main/.github/workflows/release.yml#L67
+
   push:
     branches:
       - main
