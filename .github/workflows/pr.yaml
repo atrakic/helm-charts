@@ -2,7 +2,7 @@ name: pr
 on:
   pull_request:
 jobs:
-  lint-test:
+  install-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -66,7 +66,7 @@ jobs:
           helm list -A
           kubectl get all,cm,sa -A
 
-      - name: Cleanup
-        if: steps.list-changed.outputs.changed == 'true' && failure()
+      - name: Get events
+        if: always()
         run: |
           kubectl get events --sort-by='.metadata.creationTimestamp' -A
