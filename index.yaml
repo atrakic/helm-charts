@@ -14,6 +14,19 @@ entries:
     version: 0.0.0
   argocd-apps:
   - apiVersion: v2
+    created: "2024-12-25T05:09:28.952326299Z"
+    description: A Helm chart for managing Argo CD Applications
+    digest: cc81e9d2bf56f609fca28a3c0fb68bfa55c27e1b33f2c4c6011e7a5dfd10a7d4
+    icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
+    keywords:
+    - argocd
+    - gitops
+    name: argocd-apps
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/argocd-apps-0.1.5/argocd-apps-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
     created: "2024-12-25T04:15:46.301221794Z"
     description: A Helm chart for managing Argo CD Applications
     digest: 6e14470d2e649f38b42544f26f650f8812e53d8861e4e66a8109c03fb4518869
@@ -183,4 +196,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-25T04:15:47.148250407Z"
+generated: "2024-12-25T05:09:28.952349613Z"
