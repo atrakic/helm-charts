@@ -25,16 +25,17 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.6.1
 
+      - name: Run chart-testing (lint)
+        run: ct lint --config ./.github/configs/ct.yaml
+
       - name: Run chart-testing (list-changed)
+        if: github.event_name == 'pull_request'
         id: list-changed
         run: |
           changed=$(ct --config ./.github/configs/ct.yaml list-changed)
           if [[ -n "$changed" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
-
-      - name: Run chart-testing (lint)
-        run: ct lint --config ./.github/configs/ct.yaml
 
       - name: Create kind cluster
         if: steps.list-changed.outputs.changed == 'true'
