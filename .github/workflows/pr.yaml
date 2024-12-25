@@ -38,7 +38,9 @@ jobs:
 
       - name: Create monitoring namespace
         if: steps.list-changed.outputs.changed == 'true'
-        run: kubectl create namespace monitoring
+        run: |
+          kubectl create namespace monitoring
+          kubectl label ns monitoring 'app.kubernetes.io/managed-by=Helm'
 
       - name: Install CertManager crds
         if: steps.list-changed.outputs.changed == 'true'
