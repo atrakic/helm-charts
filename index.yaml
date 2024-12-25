@@ -1,0 +1,28 @@
+apiVersion: v1
+entries:
+  argocd-apps:
+  - apiVersion: v2
+    created: "2024-12-25T02:22:20.870774104Z"
+    description: A Helm chart for managing Argo CD Applications
+    digest: aa0fded9b9e27faff5f870ba36bbba3fa8d2835e3c43c586c229f3ef5f559f84
+    icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
+    keywords:
+    - argocd
+    - gitops
+    name: argocd-apps
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/argocd-apps-0.1.1/argocd-apps-0.1.1.tgz
+    version: 0.1.1
+  bootstrap:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2024-12-25T02:22:20.990709753Z"
+    description: A Helm chart for Kubernetes
+    digest: 88b057941274475ed35e643fa44e9fcd110280f27ff08f41c86f05e84715e65f
+    name: bootstrap
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/bootstrap-0.1.1/bootstrap-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-12-25T02:22:20.990740831Z"
