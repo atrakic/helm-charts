@@ -51,4 +51,15 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/bootstrap-0.1.1/bootstrap-0.1.1.tgz
     version: 0.1.1
-generated: "2024-12-25T03:15:16.788618301Z"
+  guestbook:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2024-12-25T03:18:59.368002497Z"
+    description: A Helm chart for Kubernetes
+    digest: 4c7e4ab8a06faf084ddd56d7e576c49ea8d729bd8ac5ce04c5aac3b5a25d0f66
+    name: guestbook
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/guestbook-0.0.3/guestbook-0.0.3.tgz
+    version: 0.0.3
+generated: "2024-12-25T03:18:59.368018197Z"
