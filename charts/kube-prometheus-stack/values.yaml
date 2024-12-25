@@ -7,7 +7,7 @@ kube-prometheus-stack:
     ingres:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: nginx
+        ingressClassName: "nginx"
     hosts:
       - grafana.localhost.nip.io
     additionalDataSources:
@@ -20,6 +20,6 @@ kube-prometheus-stack:
     ingres:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: nginx
+        ingressClassName: "nginx"
     hosts:
       - prometheus.localhost.nip.io
