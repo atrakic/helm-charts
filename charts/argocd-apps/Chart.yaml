@@ -2,7 +2,7 @@ apiVersion: v2
 name: argocd-apps
 description: A Helm chart for managing Argo CD Applications
 type: application
-version: 0.1.6
+version: 0.1.7
 icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
 keywords:
   - argocd
