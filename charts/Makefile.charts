@@ -12,8 +12,8 @@ install:
 status:
 	helm get all $(CHART) -n $(NS)
 
-uninstall:
-	helm uninstall $(CHART) -n $(NS)
+uninstall del delete:
+	helm $@ $(CHART) -n $(NS)
 
 gendocs:
 	docker run --rm --volume "$$(pwd):/helm-docs" -u $$(id -u) jnorwood/helm-docs:latest
