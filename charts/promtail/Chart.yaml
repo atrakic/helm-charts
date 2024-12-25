@@ -2,11 +2,7 @@ apiVersion: v2
 name: promtail
 description: A Helm chart for Promtail
 type: application
-version: 0.0.1
-# Version number of the application being deployed. This version number should be
-# incremented each time you make changes to the application.
-appVersion: 6.3.0
-
+version: 0.0.0
 dependencies:
   - name: promtail
     version: 6.3.0
