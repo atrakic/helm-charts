@@ -2,14 +2,20 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+## https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
 kube-prometheus-stack:
+  ## https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
   grafana:
     ingres:
       enabled: true
       annotations:
         ingressClassName: "nginx"
+        pathType: ImplementationSpecific
     hosts:
       - grafana.localhost.nip.io
+    grafana.ini:
+      analytics:
+        check_for_updates: false
     additionalDataSources:
       - name: Loki
         type: loki
@@ -21,5 +27,6 @@ kube-prometheus-stack:
       enabled: true
       annotations:
         ingressClassName: "nginx"
+        pathType: ImplementationSpecific
     hosts:
       - prometheus.localhost.nip.io

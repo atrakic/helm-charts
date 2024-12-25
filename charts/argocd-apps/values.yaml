@@ -7,9 +7,9 @@ infra:
   namespace: argocd
   destination:
     server: https://kubernetes.default.svc
-  # source:
-  #  repoURL: https://github.com/atrakic/argocd-app-of-apps.git
-  #  targetRevision: HEAD
+  source:
+    repoURL: https://github.com/atrakic/argocd-app-of-apps.git
+    targetRevision: HEAD
 
 bootstrap:
   repoURL: 'https://atrakic.github.io/helm-charts'
@@ -17,10 +17,8 @@ bootstrap:
 
 certManager:
   chart: cert-manager
-  repoURL: 'https://charts.jetstack.io'
   enabled: true
   namespace: cert-manager
-  targetRevision: v1.10.1
   helm:
     parameters:
       - name: installCRDs
@@ -32,19 +30,15 @@ certManager:
 
 nginx:
   chart: ingress-nginx
-  repoURL: 'https://kubernetes.github.io/ingress-nginx'
   enabled: true
   namespace: ingress-nginx
-  targetRevision: 4.1.4
   helm:
     parameters: []
 
 monitoring:
   chart: kube-prometheus-stack
-  repoURL: 'https://prometheus-community.github.io/helm-charts'
   enabled: true
   namespace: monitoring
-  targetRevision: 67.4.0
   helm:
     parameters: []
 

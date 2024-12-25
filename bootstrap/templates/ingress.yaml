@@ -8,8 +8,11 @@ metadata:
     ingressClassName: "nginx"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    # TODO: cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    {{- if .Values.clusterIssuer.enabled }}
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    {{- else}}
     cert-manager.io/issuer: "selfsigned-issuer"
+    {{- end }}
 spec:
   tls:
   - hosts:

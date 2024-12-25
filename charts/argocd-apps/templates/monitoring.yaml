@@ -1,0 +1,29 @@
+{{- if .Values.monitoring.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.infra.project }}
+  destination:
+    server: {{ .Values.infra.destination.server }}
+    namespace: {{ .Values.monitoring.namespace }}
+  source:
+    chart: {{ .Values.monitoring.chart | default "kube-prometheus-stack" }}
+    repoURL: https://atrakic.github.io/helm-charts
+    targetRevision: HEAD
+    path: ./upstream/kube-prometheus-stack
+    helm:
+      parameters: {{ .Values.monitoring.parameters | toYaml | nindent 8 }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+{{- end }}

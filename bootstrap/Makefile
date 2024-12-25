@@ -1,2 +1,2 @@
-all install del status:
-	make -f ../charts/Makefile.charts $@
+all install del status dry-run:
+	make -f ../Makefile.charts $@
