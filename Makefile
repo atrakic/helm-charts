@@ -52,6 +52,9 @@ ct-install:
 	ct --config .github/configs/ct.yaml install # --debug
 	helm list -A --all
 
+status:
+	kubectl get applications.argoproj.io -A
+
 clean-helm:
 	helm ls --all --short | xargs -L1 helm delete
 
