@@ -61,6 +61,6 @@ jobs:
           kubectl get all,cm,sa -A
 
       - name: Cleanup
-        if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true' && failure()
         run: |
           kubectl get events --sort-by='.metadata.creationTimestamp' -A
