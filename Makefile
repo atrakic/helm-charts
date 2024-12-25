@@ -34,6 +34,7 @@ all:
 	$(KIND) get kubeconfig --name $(KIND_CLUSTER_NAME) > /dev/null 2>&1 \
 	|| echo "$$KIND_CONFIG" | $(KIND) create cluster --name=$(KIND_CLUSTER_NAME) --wait 120s --config=- $ 2>&1
 	kubectl create ns argocd || true
+	kubectl create ns monitoring || true
 	# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 	# kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 	kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.16.2/cert-manager.crds.yaml
