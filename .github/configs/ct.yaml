@@ -33,7 +33,5 @@ exclude-deprecated: true
 excluded-charts:
   - ingress-nginx
   - argo-cd
-  - guestbook
 #  - common
-#  - infra
 #  - bootstrap

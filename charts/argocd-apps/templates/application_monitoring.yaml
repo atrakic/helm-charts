@@ -1,0 +1,69 @@
+{{- if .Values.monitoring.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.infra.project }}
+  source:
+    repoURL: {{ .Values.monitoring.repoURL }}
+    targetRevision: {{ .Values.monitoring.targetRevision }}
+    chart: {{ .Values.monitoring.chart }}
+  destination:
+    server: {{ .Values.infra.destination.server }}
+    namespace: {{ .Values.monitoring.namespace }}
+  helm:
+    #skipCrds: false
+    parameters: {{ .Values.monitoring.parameters | toYaml | nindent 8 }}
+    values: |
+        alertmanager:
+          enabled: false
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            pathType: ImplementationSpecific
+            hosts:
+              - alertmanager.local
+        prometheus:
+          enabled: true
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            pathType: ImplementationSpecific
+            hosts:
+              - prometheus.local
+        grafana:
+          enabled: true
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            pathType: ImplementationSpecific
+            hosts:
+              - grafana.local
+          sidecar:
+            dashboards:
+              searchNamespace: ALL
+          service:
+            type: ClusterIP
+        grafana.ini:
+          analytics:
+            check_for_updates: false
+          auth:
+            disable_login_form: false
+          log:
+            mode: console
+          security:
+            admin_user: admin
+            admin_password: admin
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+{{- end }}

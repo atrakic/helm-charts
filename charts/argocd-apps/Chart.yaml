@@ -1,0 +1,19 @@
+apiVersion: v2
+name: argocd-apps
+description: A Helm chart for managing Argo CD Applications
+
+type: application
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.1
+
+icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
+keywords:
+  - argocd
+  - gitops
+
+# dependencies:
+# - name: argo-cd
+#   version: 7.5.2
+#   repository: https://argoproj.github.io/argo-helm

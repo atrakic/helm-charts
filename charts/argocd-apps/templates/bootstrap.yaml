@@ -7,11 +7,12 @@ spec:
   destination:
     namespace: argocd
     server: {{ .Values.infra.destination.server }}
-  project: default
+  project: {{ .Values.infra.project }}
   source:
     chart: bootstrap
     repoURL: {{ .Values.bootstrap.repoURL }}
-    targetRevision: {{ .Values.bootstrap.targetRevision }}
+    # TODO: targetRevision: {{ .Values.bootstrap.targetRevision }}
+    targetRevision: feature/infra-v0.1.4
     helm:
       parameters:
         - name: domain

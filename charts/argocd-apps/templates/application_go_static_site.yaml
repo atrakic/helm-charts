@@ -19,7 +19,7 @@ spec:
         value: latest
  destination:
   server: {{ .Values.infra.destination.server }}
-  namespace: dev
+  namespace: go-static-site
  syncPolicy:
   automated: {}
   syncOptions:
