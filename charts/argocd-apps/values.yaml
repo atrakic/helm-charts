@@ -13,7 +13,6 @@ infra:
 
 bootstrap:
   repoURL: 'https://atrakic.github.io/helm-charts'
-  targetRevision: 0.1.0
   domain: argo.local
 
 certManager:

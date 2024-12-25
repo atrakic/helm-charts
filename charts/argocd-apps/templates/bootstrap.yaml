@@ -11,8 +11,9 @@ spec:
   source:
     chart: bootstrap
     repoURL: {{ .Values.bootstrap.repoURL }}
-    # TODO: targetRevision: {{ .Values.bootstrap.targetRevision }}
-    targetRevision: feature/infra-v0.1.4
+    # Uses path instead of chart so we can follow this commit
+    path: ./charts/bootstrap
+    targetRevision: HEAD
     helm:
       parameters:
         - name: domain
