@@ -62,4 +62,18 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/guestbook-0.0.3/guestbook-0.0.3.tgz
     version: 0.0.3
-generated: "2024-12-25T03:18:59.368018197Z"
+  promtail:
+  - apiVersion: v2
+    created: "2024-12-25T03:21:53.279683868Z"
+    dependencies:
+    - name: promtail
+      repository: https://grafana.github.io/helm-charts
+      version: 6.3.0
+    description: A Helm chart for Promtail
+    digest: 16b8ad107fda0f00b4f6b117ef9c84dd9d5a9766ab9d04ff56832a07432f52c6
+    name: promtail
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
+    version: 0.0.0
+generated: "2024-12-25T03:21:53.279699677Z"
