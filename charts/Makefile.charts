@@ -15,5 +15,8 @@ status:
 uninstall:
 	helm uninstall $(CHART) -n $(NS)
 
+gendocs:
+	docker run --rm --volume "$$(pwd):/helm-docs" -u $$(id -u) jnorwood/helm-docs:latest
+
 debug:
 	helm show values $(CHART) --repo $(URL)

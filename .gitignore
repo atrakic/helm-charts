@@ -1,6 +1,6 @@
-*.tgz
-#charts/*/charts
+.DS_Store
+**/*.tgz
+charts/*/charts
 .bin/
-charts/*.tgz
 charts/*/*.lock
 charts/*/*/*.lock

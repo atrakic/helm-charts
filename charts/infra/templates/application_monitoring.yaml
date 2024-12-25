@@ -9,58 +9,34 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    server: {{ .Values.infra.destination.server }}
-    namespace: {{ .Values.monitoring.namespace }}
   project: {{ .Values.infra.project }}
   source:
     repoURL: {{ .Values.monitoring.repoURL }}
     targetRevision: {{ .Values.monitoring.targetRevision }}
+    chart: {{ .Values.monitoring.chart }}
+  destination:
+    server: {{ .Values.infra.destination.server }}
+    namespace: {{ .Values.monitoring.namespace }}
   helm:
-    skipCrds: true
+    #skipCrds: false
+    parameters: {{ .Values.monitoring.parameters | toYaml | nindent 8 }}
     values: |
-      {{ if .Values.monitoring.pdkey }}
         alertmanager:
-          config:
-            route:
-              group_by: ['namespace']
-              group_wait: 30s
-              group_interval: 5m
-              repeat_interval: 12h
-              receiver: default
-              routes:
-              - receiver: default
-                matchers:
-                  - alertname =~ "InfoInhibitor|Watchdog"
-            receivers:
-              - name: default
-                pagerduty_configs:
-                - service_key: {{ .Values.monitoring.pdkey }}
-      {{ end }}
+          enabled: false
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            pathType: ImplementationSpecific
+            hosts:
+              - alertmanager.local
         prometheus:
           enabled: true
-          prometheusSpec:
-            podMonitorNamespaceSelector:
-            any: true
-            podMonitorSelector: {}
-            podMonitorSelectorNilUsesHelmValues: false
-            ruleNamespaceSelector:
-              any: true
-            ruleSelector: {}
-            ruleSelectorNilUsesHelmValues: false
-            serviceMonitorNamespaceSelector:
-              any: true
-            serviceMonitorSelector: {}
-            serviceMonitorSelectorNilUsesHelmValues: false
-            retention: {{ .Values.monitoring.retention }}
-            storageSpec:
-              volumeClaimTemplate:
-                spec:
-                  storageClassName: {{ .Values.monitoring.storageClass }}
-                  accessModes: ["ReadWriteOnce"]
-                  resources:
-                    requests:
-                      storage: {{ .Values.monitoring.storageSize }}
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            pathType: ImplementationSpecific
+            hosts:
+              - prometheus.local
         grafana:
           enabled: true
           ingress:
@@ -74,16 +50,20 @@ spec:
               searchNamespace: ALL
           service:
             type: ClusterIP
-          additionalDataSources:
-            - name: loki
-              type: loki
-              url: http://loki.monitoring.svc.cluster.local:3100
-    chart: kube-prometheus-stack
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: monitoring
+        grafana.ini:
+          analytics:
+            check_for_updates: false
+          auth:
+            disable_login_form: false
+          log:
+            mode: console
+          security:
+            admin_user: admin
+            admin_password: admin
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
 {{- end }}
