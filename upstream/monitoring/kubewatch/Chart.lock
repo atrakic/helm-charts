@@ -1,0 +1,6 @@
+dependencies:
+- name: kubewatch
+  repository: https://robusta-charts.storage.googleapis.com
+  version: 3.5.0
+digest: sha256:1f68c1ce601f1020f2550c13e15acaab334ac1376328752436541dbb9dc7e0a9
+generated: "2024-12-25T15:42:16.812855+01:00"

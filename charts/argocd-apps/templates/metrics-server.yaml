@@ -4,15 +4,14 @@ metadata:
   name: metrics-server
   namespace: argocd
 spec:
+  project: {{ .Values.infra.project | default "default" }}
   destination:
     namespace: kube-system
-    server: {{ .Values.infra.destination.server }}
-  project: {{ .Values.infra.project }}
+    server: {{ .Values.infra.destination.server | default "https://kubernetes.default.svc" }}
   source:
     chart: metrics-server
     repoURL: https://atrakic.github.io/helm-charts
-    # Uses path instead of chart so we can follow this commit
-    path: ./upstream/metrics-server
+    path: ./upstream/monitoring/metrics-server
     targetRevision: HEAD
     helm:
       parameters:

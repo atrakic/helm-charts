@@ -1,6 +1,8 @@
 .DS_Store
 **/*.tgz
 charts/*/charts
+upstream/*/charts
+upstream/*/*/charts
 .bin/
 charts/*/*.lock
 charts/*/*/*.lock

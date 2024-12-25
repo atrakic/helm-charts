@@ -43,7 +43,7 @@ all:
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/refs/heads/master/manifests/crds/appproject-crd.yaml
 
 install:
-	pushd $(BASEDIR)/charts/argocd-apps; make -f $(BASEDIR)/charts/Makefile.charts $@; popd
+	pushd $(BASEDIR)/charts/argocd-apps; make -f $(BASEDIR)/Makefile.charts $@; popd
 
 ct-test:
 	ct --config .github/configs/ct.yaml lint --debug

@@ -1,0 +1,9 @@
+apiVersion: v2
+name: k8spacket
+description: A Helm chart for k8spacket
+type: application
+version: 0.0.0
+dependencies:
+- name: k8spacket
+  version: 2.1.4
+  repository: https://k8spacket.github.io/k8spacket-helm-chart

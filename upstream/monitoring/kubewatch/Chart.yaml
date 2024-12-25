@@ -1,0 +1,7 @@
+apiVersion: v2
+name: kubewatch
+version: 0.0.0
+dependencies:
+  - name: kubewatch
+    version: 3.5.0
+    repository: https://robusta-charts.storage.googleapis.com

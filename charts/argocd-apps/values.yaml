@@ -61,16 +61,6 @@ logging:
   helm:
     parameters: []
 
-storage:
-  chart: local-path-provisioner
-  repoURL: 'https://github.com/rancher/local-path-provisioner.git'
-  enabled: false
-  namespace: local-path-storage
-  targetRevision: HEAD
-  helm:
-    parameters: []
-    # nodeSelector: local-path-provisioner=true
-
 k8spacket:
   chart: k8spacket
   repoURL: 'https://k8spacket.github.io/k8spacket-helm-chart'

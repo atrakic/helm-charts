@@ -19,7 +19,6 @@ spec:
     targetRevision: HEAD
     path: ./upstream/cert-manager
     helm:
-      # Extra parameters to set (same as setting through values.yaml, but these take precedence)
       parameters: {{ .Values.certManager.helm.parameters | toYaml | nindent 8 }}
   syncPolicy:
     automated:

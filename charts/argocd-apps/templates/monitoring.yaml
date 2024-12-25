@@ -17,7 +17,7 @@ spec:
     chart: {{ .Values.monitoring.chart | default "kube-prometheus-stack" }}
     repoURL: https://atrakic.github.io/helm-charts
     targetRevision: HEAD
-    path: ./upstream/kube-prometheus-stack
+    path: ./upstream/monitoring/kube-prometheus-stack
     helm:
       parameters: {{ .Values.monitoring.parameters | toYaml | nindent 8 }}
   syncPolicy:

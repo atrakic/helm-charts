@@ -9,16 +9,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ .Values.infra.project }}
+  project: {{ .Values.infra.project | default "default" }}
   source:
     repoURL: {{ .Values.k8spacket.repoURL }}
     targetRevision: {{ .Values.k8spacket.targetRevision }}
-    chart: {{ .Values.k8spacket.chart }}
+    chart: {{ .Values.k8spacket.chart | default "k8spacket" }}
     helm:
       parameters: {{ .Values.k8spacket.helm.parameters | toYaml | nindent 8 }}
   destination:
-    server: {{ .Values.infra.destination.server }}
-    namespace: {{ .Values.k8spacket.namespace }}
+    server: {{ .Values.infra.destination.server | default "https://kubernetes.default.svc" }}
+    namespace: {{ .Values.k8spacket.namespace | default "k8spacket" }}
   syncPolicy:
     automated: {}
     syncOptions:
