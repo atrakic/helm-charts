@@ -1,6 +1,31 @@
 apiVersion: v1
 entries:
+  argo-cd:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:46.20962338Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 7.5.2
+    digest: 22b487a73852bb96fd5d009bb16892fc0841cb5e19f5fdf5651acdda8e0c7e24
+    name: argo-cd
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/argo-cd-0.0.0/argo-cd-0.0.0.tgz
+    version: 0.0.0
   argocd-apps:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:46.301221794Z"
+    description: A Helm chart for managing Argo CD Applications
+    digest: 6e14470d2e649f38b42544f26f650f8812e53d8861e4e66a8109c03fb4518869
+    icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
+    keywords:
+    - argocd
+    - gitops
+    name: argocd-apps
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/argocd-apps-0.1.4/argocd-apps-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     created: "2024-12-25T03:15:16.788601619Z"
     description: A Helm chart for managing Argo CD Applications
@@ -51,6 +76,48 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/bootstrap-0.1.1/bootstrap-0.1.1.tgz
     version: 0.1.1
+  cert-manager:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:46.423267707Z"
+    dependencies:
+    - name: cert-manager
+      repository: https://charts.jetstack.io
+      version: v1.8.0
+    description: A Helm chart for installing cert-manager
+    digest: 9d39f427651ad89032d0e541cd9b939d93062b424f7d03067654a05737145a02
+    name: cert-manager
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/cert-manager-0.0.0/cert-manager-0.0.0.tgz
+    version: 0.0.0
+  external-dns:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:46.528404561Z"
+    dependencies:
+    - name: external-dns
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.13.1
+    description: A Helm chart for External DNS
+    digest: 13b6429959c3834e16c1e1e62798628a79ba6fbae5002205b75cdb1d3a60da6f
+    name: external-dns
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/external-dns-0.0.0/external-dns-0.0.0.tgz
+    version: 0.0.0
+  external-secrets:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:46.647005577Z"
+    dependencies:
+    - name: external-secrets
+      repository: https://charts.external-secrets.io/
+      version: 0.11.0
+    description: A Helm chart for the External Secrets operator
+    digest: 37980971d260e02297e8870fe1249ff4705678ef8a118967d0138abdb2e63a78
+    name: external-secrets
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/external-secrets-0.0.0/external-secrets-0.0.0.tgz
+    version: 0.0.0
   guestbook:
   - apiVersion: v2
     appVersion: "1.0"
@@ -62,6 +129,46 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/guestbook-0.0.3/guestbook-0.0.3.tgz
     version: 0.0.3
+  ingress-nginx:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:46.74511883Z"
+    dependencies:
+    - name: ingress-nginx
+      repository: https://kubernetes.github.io/ingress-nginx
+      version: 4.1.4
+    description: A Helm chart for Nginx Ingress Controller
+    digest: 908366bb4d01408043213abf5d67f93fd40797ab08436130a25b1bab8409e3c2
+    name: ingress-nginx
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/ingress-nginx-0.0.0/ingress-nginx-0.0.0.tgz
+    version: 0.0.0
+  kube-prometheus-stack:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:46.944225393Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 56.19.0
+    digest: c11ebd0438150519c1ab3160d0ac25011ba91226ae47e7a9c3889751eeba3ca2
+    name: kube-prometheus-stack
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/kube-prometheus-stack-0.0.0/kube-prometheus-stack-0.0.0.tgz
+    version: 0.0.0
+  kubernetes-dashboard:
+  - apiVersion: v2
+    created: "2024-12-25T04:15:47.04600997Z"
+    dependencies:
+    - name: kubernetes-dashboard
+      repository: https://kubernetes.github.io/dashboard/
+      version: 5.7.0
+    description: A Helm chart for Kubernetes Dashboard
+    digest: 0338b27dd9100900adea21ede573e41b7682b2d0156a25a874f7304a5bfc678c
+    name: kubernetes-dashboard
+    type: application
+    urls:
+    - https://github.com/atrakic/helm-charts/releases/download/kubernetes-dashboard-0.0.0/kubernetes-dashboard-0.0.0.tgz
+    version: 0.0.0
   promtail:
   - apiVersion: v2
     created: "2024-12-25T03:21:53.279683868Z"
@@ -76,4 +183,4 @@ entries:
     urls:
     - https://github.com/atrakic/helm-charts/releases/download/promtail-0.0.0/promtail-0.0.0.tgz
     version: 0.0.0
-generated: "2024-12-25T03:21:53.279699677Z"
+generated: "2024-12-25T04:15:47.148250407Z"
