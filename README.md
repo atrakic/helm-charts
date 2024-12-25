@@ -6,7 +6,7 @@
 Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 
 ```console
-helm repo add atrakic https://atrakic.github.io/helm-charts/
+helm repo add atrakic https://atrakic.github.io/helm-charts
 helm repo update
 helm search repo atrakic
 helm install <my-release> atrakic/<chart>
