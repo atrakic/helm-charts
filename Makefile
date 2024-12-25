@@ -1,6 +1,9 @@
 # Set the shell to bash always
 SHELL := /bin/bash
 
+.PHONY: all ct-test ct-install clean-helm install clean
+
+BASEDIR=$(shell git rev-parse --show-toplevel)
 KIND_CLUSTER_NAME ?= $(shell basename $$PWD)
 KIND=$(shell which kind)
 
@@ -37,15 +40,18 @@ all:
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/refs/heads/master/manifests/crds/applicationset-crd.yaml
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/refs/heads/master/manifests/crds/appproject-crd.yaml
 
-test:
+ct-test:
 	ct --config .github/configs/ct.yaml lint --debug
 
-install:
+ct-install:
 	ct --config .github/configs/ct.yaml install # --debug
 	helm list -A --all
 
 clean-helm:
 	helm ls --all --short | xargs -L1 helm delete
+
+install:
+	pushd $(BASEDIR)/charts/infra; make -f $(BASEDIR)/charts/Makefile.charts $@; popd
 
 clean: clean-helm
 	echo kind delete cluster --name $(KIND_CLUSTER_NAME)
