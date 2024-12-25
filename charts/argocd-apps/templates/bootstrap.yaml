@@ -11,8 +11,8 @@ spec:
   source:
     chart: bootstrap
     repoURL: {{ .Values.bootstrap.repoURL }}
-    targetRevision: {{ .Values.bootstrap.targetRevision }}
-    #targetRevision: feature/infra-v0.1.4
+    # TODO: targetRevision: {{ .Values.bootstrap.targetRevision }}
+    targetRevision: feature/infra-v0.1.4
     helm:
       parameters:
         - name: domain

@@ -9,10 +9,10 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: {{ .Values.infra.project }}
   destination:
     server: {{ .Values.infra.destination.server }}
     namespace: {{ .Values.certManager.namespace }}
-  project: {{ .Values.infra.project }}
   source:
     chart: {{ .Values.certManager.chart }}
     repoURL: {{ .Values.certManager.repoURL }}
