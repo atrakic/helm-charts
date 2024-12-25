@@ -16,7 +16,7 @@ spec:
       - values.yaml
     parameters:
       - name: image.tag
-        value: latest
+        value: main
  destination:
   server: {{ .Values.infra.destination.server }}
   namespace: go-static-site
