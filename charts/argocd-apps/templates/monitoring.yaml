@@ -9,13 +9,13 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ .Values.infra.project }}
+  project: {{ .Values.infra.project | default "default" }}
   destination:
-    server: {{ .Values.infra.destination.server }}
-    namespace: {{ .Values.monitoring.namespace }}
+    server: {{ .Values.infra.destination.server | default "https://kubernetes.default.svc" }}
+    namespace: {{ .Values.monitoring.namespace | default "monitoring" }}
   source:
     chart: {{ .Values.monitoring.chart | default "kube-prometheus-stack" }}
-    repoURL: https://atrakic.github.io/helm-charts
+    repoURL: 'https://atrakic.github.io/helm-charts'
     targetRevision: HEAD
     path: ./upstream/monitoring/kube-prometheus-stack
     helm:

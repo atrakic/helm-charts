@@ -7,7 +7,7 @@ spec:
   project: {{ .Values.infra.project | default "default" }}
   destination:
     namespace: argocd
-    server: {{ .Values.infra.destination.server }}
+    server: {{ .Values.infra.destination.server | default "https://kubernetes.default.svc" }}
   source:
     chart: bootstrap
     repoURL: {{ .Values.bootstrap.repoURL }}
