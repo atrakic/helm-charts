@@ -4,3 +4,8 @@
 
 # FQDN to use for sites
 domain: foo.bar
+
+# Email to use for cert-manager
+clusterIssuer:
+  enabled: false
+  address: foorbar@gmail.com

@@ -4,14 +4,13 @@ metadata:
   name: bootstrap
   namespace: argocd
 spec:
+  project: {{ .Values.infra.project | default "default" }}
   destination:
     namespace: argocd
     server: {{ .Values.infra.destination.server }}
-  project: {{ .Values.infra.project }}
   source:
     chart: bootstrap
     repoURL: {{ .Values.bootstrap.repoURL }}
-    # Uses path instead of chart so we can follow this commit
     path: ./charts/bootstrap
     targetRevision: HEAD
     helm:

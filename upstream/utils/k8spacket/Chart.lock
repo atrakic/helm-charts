@@ -1,0 +1,6 @@
+dependencies:
+- name: k8spacket
+  repository: https://k8spacket.github.io/k8spacket-helm-chart
+  version: 2.1.4
+digest: sha256:933c4378938ef07a67ab63bf19dbcb237504e538782a0954cb835a0eb5f1750a
+generated: "2024-12-25T16:24:52.055384+01:00"

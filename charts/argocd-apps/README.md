@@ -19,7 +19,6 @@ $ helm install my-release atrakic/argocd-apps
 |-----|------|---------|-------------|
 | bootstrap.domain | string | `"argo.local"` |  |
 | bootstrap.repoURL | string | `"https://atrakic.github.io/helm-charts"` |  |
-| bootstrap.targetRevision | string | `"0.1.0"` |  |
 | certManager.chart | string | `"cert-manager"` |  |
 | certManager.enabled | bool | `true` |  |
 | certManager.helm.parameters[0].name | string | `"installCRDs"` |  |
@@ -29,11 +28,11 @@ $ helm install my-release atrakic/argocd-apps
 | certManager.helm.parameters[2].name | string | `"prometheus.servicemonitor.honorLabels"` |  |
 | certManager.helm.parameters[2].value | string | `"true"` |  |
 | certManager.namespace | string | `"cert-manager"` |  |
-| certManager.repoURL | string | `"https://charts.jetstack.io"` |  |
-| certManager.targetRevision | string | `"v1.10.1"` |  |
 | infra.destination.server | string | `"https://kubernetes.default.svc"` |  |
 | infra.namespace | string | `"argocd"` |  |
 | infra.project | string | `"default"` |  |
+| infra.source.repoURL | string | `"https://github.com/atrakic/argocd-app-of-apps.git"` |  |
+| infra.source.targetRevision | string | `"HEAD"` |  |
 | k8spacket.chart | string | `"k8spacket"` |  |
 | k8spacket.enabled | bool | `false` |  |
 | k8spacket.helm.parameters | list | `[]` |  |
@@ -50,8 +49,6 @@ $ helm install my-release atrakic/argocd-apps
 | monitoring.enabled | bool | `true` |  |
 | monitoring.helm.parameters | list | `[]` |  |
 | monitoring.namespace | string | `"monitoring"` |  |
-| monitoring.repoURL | string | `"https://prometheus-community.github.io/helm-charts"` |  |
-| monitoring.targetRevision | string | `"67.4.0"` |  |
 | monitoringCrds.chart | string | `"kube-prometheus-stack-crds"` |  |
 | monitoringCrds.enabled | bool | `true` |  |
 | monitoringCrds.helm.parameters | list | `[]` |  |
@@ -62,14 +59,6 @@ $ helm install my-release atrakic/argocd-apps
 | nginx.enabled | bool | `true` |  |
 | nginx.helm.parameters | list | `[]` |  |
 | nginx.namespace | string | `"ingress-nginx"` |  |
-| nginx.repoURL | string | `"https://kubernetes.github.io/ingress-nginx"` |  |
-| nginx.targetRevision | string | `"4.1.4"` |  |
-| storage.chart | string | `"local-path-provisioner"` |  |
-| storage.enabled | bool | `false` |  |
-| storage.helm.parameters | list | `[]` |  |
-| storage.namespace | string | `"local-path-storage"` |  |
-| storage.repoURL | string | `"https://github.com/rancher/local-path-provisioner.git"` |  |
-| storage.targetRevision | string | `"HEAD"` |  |
 
 * To regenerate this document, from the root of this chart directory run:
 ```shell

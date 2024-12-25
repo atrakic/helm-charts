@@ -9,20 +9,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: {{ .Values.infra.project | default "default" }}
   destination:
-    namespace: {{ .Values.nginx.namespace }}
-    server: {{ .Values.infra.destination.server }}
-  project: {{ .Values.infra.project }}
+    server: {{ .Values.infra.destination.server | default "https://kubernetes.default.svc" }}
+    namespace: {{ .Values.nginx.namespace | default "ingress-nginx" }}
   source:
-    chart: {{ .Values.nginx.chart }}
-    repoURL: {{ .Values.nginx.repoURL }}
-    targetRevision: {{ .Values.nginx.targetRevision }}
+    chart: {{ .Values.nginx.chart | default "ingress-nginx" }}
+    repoURL: 'https://atrakic.github.io/helm-charts'
+    targetRevision: HEAD
+    path: ./upstream/networking/ingress-nginx
     helm:
-      values: |
-        controller:
-          defaultBackend:
-            enabled: true
-            image: ghcr.io/atrakic/go-static-site:latest
       parameters: {{ .Values.nginx.parameters | toYaml | nindent 8 }}
   syncPolicy:
     automated:

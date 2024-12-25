@@ -1,0 +1,32 @@
+rbac:
+  create: true
+  customRoles:
+    - apiGroups: ["monitoring.coreos.com"]
+      resources: ["prometheusrules"]
+      verbs: ["get", "list", "watch"]
+resourcesToWatch:
+  deployment: false
+  replicationcontroller: false
+  replicaset: false
+  daemonset: false
+  services: true
+  pod: true
+  job: false
+  node: false
+  clusterrole: true
+  clusterrolebinding: true
+  serviceaccount: true
+  persistentvolume: false
+  namespace: false
+  secret: false
+  configmap: false
+  ingress: false
+  coreevent: false
+  event: true
+customresources:
+  - group: monitoring.coreos.com
+    version: v1
+    resource: prometheusrules
+slack:
+  channel: '#YOUR_CHANNEL'
+  token: 'xoxb-YOUR_TOKEN'

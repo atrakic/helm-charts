@@ -8,10 +8,10 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: {{ .Values.infra.project | default "default" }}
   destination:
     server: {{ .Values.infra.destination.server }}
     namespace: {{ .Values.monitoringCrds.namespace }}
-  project: {{ .Values.infra.project }}
   source:
     repoURL: {{ .Values.monitoringCrds.repoURL }}
     path: charts/kube-prometheus-stack/crds/

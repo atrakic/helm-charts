@@ -11,8 +11,7 @@ spec:
   source:
     chart: metrics-server
     repoURL: https://atrakic.github.io/helm-charts
-    # Uses path instead of chart so we can follow this commit
-    path: ./upstream/metrics-server
+    path: ./upstream/monitoring/metrics-server
     targetRevision: HEAD
     helm:
       parameters:

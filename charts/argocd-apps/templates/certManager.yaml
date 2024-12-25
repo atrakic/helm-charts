@@ -11,17 +11,19 @@ metadata:
 spec:
   project: {{ .Values.infra.project }}
   destination:
-    server: {{ .Values.infra.destination.server }}
-    namespace: {{ .Values.certManager.namespace }}
+    server: {{ .Values.infra.destination.server | default "https://kubernetes.default.svc" }}
+    namespace: {{ .Values.certManager.namespace | default "cert-manager" }}
   source:
-    chart: {{ .Values.certManager.chart }}
-    repoURL: {{ .Values.certManager.repoURL }}
-    targetRevision: {{ .Values.certManager.targetRevision }}
+    chart: {{ .Values.certManager.chart | default "cert-manager" }}
+    repoURL: 'https://atrakic.github.io/helm-charts'
+    targetRevision: HEAD
+    path: ./upstream/cert-manager
     helm:
-      # Extra parameters to set (same as setting through values.yaml, but these take precedence)
       parameters: {{ .Values.certManager.helm.parameters | toYaml | nindent 8 }}
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
 {{- end }}

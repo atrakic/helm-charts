@@ -43,7 +43,7 @@ all:
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/refs/heads/master/manifests/crds/appproject-crd.yaml
 
 install:
-	pushd $(BASEDIR)/charts/argocd-apps; make -f $(BASEDIR)/charts/Makefile.charts $@; popd
+	pushd $(BASEDIR)/charts/argocd-apps; make -f $(BASEDIR)/Makefile.charts $@; popd
 
 ct-test:
 	ct --config .github/configs/ct.yaml lint --debug
@@ -51,6 +51,9 @@ ct-test:
 ct-install:
 	ct --config .github/configs/ct.yaml install # --debug
 	helm list -A --all
+
+status:
+	kubectl get applications.argoproj.io -A
 
 clean-helm:
 	helm ls --all --short | xargs -L1 helm delete

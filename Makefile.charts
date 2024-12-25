@@ -6,6 +6,9 @@ all:
 	helm dependency build --skip-refresh
 	helm template --debug .
 
+dry-run:
+	helm install --generate-name --debug --dry-run ./
+
 install:
 	helm upgrade --install --cleanup-on-fail --create-namespace $(CHART) -n $(NS) .
 

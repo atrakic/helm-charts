@@ -1,0 +1,14 @@
+diskalerts:
+  enabled: "true"
+hostalerts:
+  enabled: "true"
+kubernetesalerts:
+  enabled: "true"
+podalerts:
+  enabled: "true"
+emailConfiguration:
+  to: "overlay_me"
+  from: "overlay_me"
+  smarthost: "overlay_me"
+  insecureSkipVerify: false
+  requireTLS: true
