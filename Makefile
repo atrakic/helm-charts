@@ -40,6 +40,9 @@ all:
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/refs/heads/master/manifests/crds/applicationset-crd.yaml
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/refs/heads/master/manifests/crds/appproject-crd.yaml
 
+install:
+	pushd $(BASEDIR)/charts/argocd-apps; make -f $(BASEDIR)/charts/Makefile.charts $@; popd
+
 ct-test:
 	ct --config .github/configs/ct.yaml lint --debug
 
@@ -49,9 +52,6 @@ ct-install:
 
 clean-helm:
 	helm ls --all --short | xargs -L1 helm delete
-
-install:
-	pushd $(BASEDIR)/charts/infra; make -f $(BASEDIR)/charts/Makefile.charts $@; popd
 
 clean: clean-helm
 	echo kind delete cluster --name $(KIND_CLUSTER_NAME)
