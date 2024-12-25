@@ -10,11 +10,11 @@ metadata:
 spec:
   project: {{ .Values.infra.project | default "default" }}
   destination:
-    server: {{ .Values.infra.destination.server }}
-    namespace: {{ .Values.monitoringCrds.namespace }}
+    server: {{ .Values.infra.destination.server | default "https://kubernetes.default.svc" }}
+    namespace: {{ .Values.monitoringCrds.namespace | default "monitoring" }}
   source:
     repoURL: {{ .Values.monitoringCrds.repoURL }}
-    path: charts/kube-prometheus-stack/crds/
+    path: {{ .Values.monitoringCrds.path }}
     targetRevision: {{ .Values.monitoringCrds.targetRevision }}
     directory:
       recurse: true
