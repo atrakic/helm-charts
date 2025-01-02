@@ -53,6 +53,21 @@ monitoringCrds:
   helm:
     parameters: []
 
+storage:
+  enabled: true
+  helm:
+    parameters:
+      - name: rbac.create
+        value: "true"
+      - name: storageClass.defaultClass
+        value: "true"
+    values: |
+      storage:
+        storageClassName: local-path
+        accessModes:
+          - ReadWriteOnce
+        size: 1Gi
+
 # TODO: disabled ###
 logging:
   chart: loki-stack
