@@ -4,3 +4,8 @@ cert-manager:
   installCRDs: true
   serviceAccount:
     create: false
+  prometheus:
+    enabled: true
+    servicemonitor:
+      enabled: true
+      honorLabels: true
